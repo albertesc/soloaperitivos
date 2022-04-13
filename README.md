@@ -1,1 +1,1 @@
-**Sitio web de recopilación de recetas.**
+**Sitio web de recopilación de recetas creado con Nextjs.**
