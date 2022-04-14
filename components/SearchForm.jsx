@@ -1,3 +1,6 @@
+/* global fetch */
+/* eslint no-undef: "error" */
+
 import { useState, useRef, useMemo } from 'react'
 import { createAutocomplete } from '@algolia/autocomplete-core'
 import Link from 'next/link'
@@ -27,7 +30,6 @@ export default function SearchForm (props) {
     navigator: {
       navigate ({ itemUrl }) {
         window.location.assign(itemUrl)
-        console.log('intro')
       },
       navigateNewTab ({ itemUrl }) {
         const windowReference = window.open(itemUrl, '_blank', 'noopener')

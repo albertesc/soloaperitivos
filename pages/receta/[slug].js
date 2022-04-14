@@ -15,8 +15,6 @@ export default function Recipe ({ recipe, nextRecipe, prevRecipe }) {
   const router = useRouter()
   const { title, date, author, content, ogImage, coverImage, ingredients, tags, duration } = recipe
 
-  console.log({ nextRecipe, prevRecipe })
-
   if (!router.isFallback && !recipe?.slug) {
     return <ErrorPage statusCode={404} />
   }

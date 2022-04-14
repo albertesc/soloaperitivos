@@ -3,10 +3,15 @@ import { getAllRecipes } from '../../lib/recipes'
 export default (req, res) => {
   const allRecipes = getAllRecipes(['title', 'slug', 'coverImage'])
 
-  const results = req.query.q
-    ? allRecipes.filter(recipe => recipe.title.toLowerCase().includes(req.query.q))
-    : []
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'application/json')
-  res.end(JSON.stringify(results))
+  const { q } = req.query
+
+  if (q) {
+    const results = allRecipes.filter(recipe => {
+      const { title } = recipe
+      return title.toLowerCase().includes(q.toLowerCase())
+    })
+    return res.status(200).json(results)
+  }
+
+  res.status(400).json()
 }
